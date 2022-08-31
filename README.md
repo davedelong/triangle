@@ -24,4 +24,5 @@ I've preserved it here as a historical curiosity.
 
 ## Acknowledgements
 
-"metamacros.h" comes from https://github.com/jspahrsummers/libextobjc
+- [@jspahrsummers](https://github.com/jspahrsummers) for "metamacros.h" (via https://github.com/jspahrsummers/libextobjc)
+- Mrs. Jeong for giving me so much trig homework that I felt the need to make this, thus helping spark my career in programming ❤️
