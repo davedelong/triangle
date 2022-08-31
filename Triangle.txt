@@ -1,0 +1,435 @@
+:Lbl θ
+:ClrHome
+:Float
+:Menu("CHOOSE ONE:","DEGREES",M,"RADIANS",N,"ABOUT",E,"QUIT",Z)
+:
+:Lbl M
+:Degree
+:Menu("CHOOSE ONE:","SSS",A,"SAS",B,"SSA",C,"AAS",D,"BACK",θ,"ABOUT",E,"QUIT",Z)
+:
+:Lbl A
+:ClrHome
+:Disp "ENTER SSS"
+:Input A
+:Input B
+:Input C
+:Disp "AAA:"
+:Disp cos{^-1}((A{^2}-B{^2}-C{^2})/({-}2BC))
+:Disp cos{^-1}((B{^2}-A{^2}-C{^2})/({-}2AC))
+:Disp cos{^-1}((C{^2}-A{^2}-B{^2})/({-}2AB))
+:(1/2)(A+B+C)→S
+:Disp "AREA="
+:Disp sqrt((S)(S-A)(S-B)(S-C))
+:Pause 
+:Disp "PERIMETER="
+:Disp 2S
+:Pause 
+:Goto θ
+:Stop
+:
+:Lbl B
+:ClrHome
+:Disp "ENTER SAS"
+:Input A
+:Input C
+:Input B
+:Disp "ASA:"
+:sqrt(A{^2}+B{^2}-2ABcos(C))→D
+:Disp sin{^-1}((Asin(C))/(D))
+:sin{^-1}((Asin(C))/(D))→E
+:Disp D
+:Disp 180-C-E
+:((1/2)(A+B+D))→S
+:Disp "AREA="
+:Disp sqrt((S)(S-A)(S-B)(S-D))
+:Pause 
+:Disp "PERIMETER="
+:Disp 2S
+:Pause 
+:Goto θ
+:Stop
+:
+:Lbl D
+:ClrHome
+:Disp "ENTER AAS"
+:Input A
+:Input B
+:Input C
+:Disp "ASS:"
+:Disp 180-A-B
+:180-A-B→D
+:Disp (Csin(B))/sin(A)
+:(Csin(B))/sin(A)→E
+:Disp (Csin(D))/sin(A)
+:(Csin(D))/sin(A)→F
+:(.5)(C+E+F)→S
+:Disp "AREA="
+:Disp sqrt((S)(S-C)(S-E)(S-F))
+:Pause 
+:Disp "PERIMETER="
+:Disp 2S
+:Pause 
+:Goto θ
+:Stop
+:
+:Lbl E
+:Disp "  prgmTRIANGLE:"
+:Disp ""
+:Disp "  VERSION 3.3! "
+:Disp ""
+:Disp ""
+:Disp "CREATED BY DAVE"
+:Disp "     DELONG"
+:Pause 
+:Goto θ
+:Stop
+:
+:Lbl C
+:Disp "ENTER SSA"
+:Input A
+:Input B
+:Input C
+:If C<90
+:Then
+:Goto G
+:Else
+:Goto F
+:Stop
+:
+:Lbl G
+:Bsin(C)→θ
+:If A=θ
+:Then
+:Goto L
+:Else
+:If A>θ
+:Then
+:Goto K
+:Else
+:If A<θ
+:Then
+:Disp "NO SOLUTION"
+:Pause 
+:Goto θ
+:Stop
+:
+:Lbl L
+:Disp "AAS:"
+:Disp sin{^-1}((Bsin(C))/A)
+:sin{^-1}((Bsin(C))/A)→D
+:Disp 180-D-C
+:180-D-C→E
+:Disp (Asin(E))/sin(C)
+:(Asin((E))/sin(C)→F
+:(.5)(A+B+F)→S
+:Disp "AREA="
+:Disp sqrt((S)(S-A)(S-B)(S-F))
+:Pause 
+:Disp "PERIMETER="
+:Disp 2S
+:Pause 
+:Goto θ
+:Stop
+:
+:Lbl K
+:If A<B
+:Then
+:Goto H
+:Else
+:If A>B
+:Then
+:Goto I
+:Else
+:If A=B
+:Then
+:Disp "FIGURE IT OUT."
+:Pause 
+:Goto θ
+:Stop
+:
+:Lbl H
+:Disp "AAS:"
+:Disp sin{^-1}((Bsin(C))/A)
+:sin{^-1}((Bsin(C))/A)→D
+:Disp 180-C-D
+:180-C-D→E
+:Disp (Asin(E))/sin(C)
+:(Asin((E))/sin(C)→F
+:(.5)(A+B+F)→S
+:Disp "AREA="
+:Disp sqrt((S)(S-A)(S-B)(S-F))
+:Pause 
+:Disp "PERIMETER="
+:Disp 2S
+:Disp "OR..."
+:Pause 
+:Disp "AAS:"
+:Disp 180-D
+:180-D→G
+:Disp 180-G-C
+:180-G-C→I
+:Disp (Asin(I))/sin(C)
+:(Asin((I))/sin(C)→F
+:(.5)(A+B+F)→S
+:Disp "AREA="
+:Disp sqrt((S)(S-A)(S-B)(S-F))
+:Pause 
+:Disp "PERIMETER="
+:Disp 2S
+:Pause 
+:Goto θ
+:Stop
+:
+:Lbl I
+:Disp "AAS:"
+:Disp sin{^-1}((Bsin(C))/A)
+:sin{^-1}((Bsin(C))/A)→D
+:Disp 180-C-D
+:180-C-D→E
+:Disp (Asin(E))/sin(C)
+:(Asin(E))/sin(C)→F
+:(.5)(A+B+F)→S
+:Disp "AREA="
+:Disp sqrt((S)(S-A)(S-B)(S-F))
+:Pause 
+:Disp "PERIMETER="
+:Disp 2S
+:Pause 
+:Goto θ
+:Stop
+:
+:Lbl F
+:If A≤B
+:Then
+:Disp "NO SOLUTION"
+:Else
+:If A>B
+:Goto J
+:
+:Lbl J
+:Disp "AAS:"
+:Disp sin{^-1}((Bsin(C))/A)
+:sin{^-1}((Bsin(C))/A)→D
+:Disp 180-C-D
+:180-C-D→E
+:Disp (Asin(E))/sin(C)
+:(Asin(E))/sin(C)→F
+:(.5)(A+B+F)→S
+:Disp "AREA="
+:Disp sqrt((S)(S-A)(S-B)(S-F))
+:Pause 
+:Disp "PERIMETER="
+:Disp 2S
+:Pause 
+:Goto θ
+:Stop
+:
+:Lbl Z
+:ClrHome
+:Stop
+:
+:Lbl N
+:Radian
+:Menu("CHOOSE ONE:","SSS",O,"SAS",P,"SSA",Q,"AAS",R,"BACK",θ,"ABOUT",E,"QUIT",Z)
+:
+:Lbl O
+:Disp "SSS?"
+:Input A
+:Input B
+:Input C
+:Disp "AAA:"
+:Disp cos{^-1}((A{^2}-B{^2}-C{^2})/({-}2BC))
+:Disp cos{^-1}((B{^2}-A{^2}-C{^2})/({-}2AC))
+:Disp cos{^-1}((C{^2}-A{^2}-B{^2})/({-}2AB))
+:Disp "AREA="
+:((A+B+C)/2)→S
+:Disp sqrt((S)(S-A)(S-B)(S-C))
+:Pause 
+:Disp "PERIMETER="
+:Disp 2S
+:Pause 
+:Goto θ
+:Stop
+:
+:Lbl P
+:Disp "SAS?"
+:Input A
+:Input B
+:Input C
+:Disp "ASA:"
+:sqrt(A{^2}+C{^2}-2ACcos(B))→D
+:Disp sin{^-1}((Asin(B))/D)
+:sin{^-1}((Asin(B))/D)→E
+:Disp D
+:Disp π-B-E
+:Disp "AREA="
+:((A+C+D)/2)→S
+:Disp sqrt((S)(S-A)(S-C)(S-D))
+:Pause 
+:Disp "PERIMETER="
+:Disp 2S
+:Pause 
+:Goto θ
+:Stop
+:
+:Lbl R
+:Disp "AAS?"
+:Input A
+:Input B
+:Input C
+:Disp "ASS:"
+:(Csin(B))/sin(A)→D
+:π-A-B→E
+:(Csin(E))/sin(A)→F
+:Disp E
+:Disp D
+:Disp F
+:Disp "AREA="
+:((C+D+F)/2)→S
+:Disp sqrt((S)(S-C)(S-D)(S-F))
+:Pause 
+:Disp "PERIMETER="
+:Disp 2S
+:Pause 
+:Goto θ
+:Stop
+:
+:Lbl Q
+:Disp "SSA?"
+:Input A
+:Input B
+:Input C
+:If C<90
+:Then
+:Goto S
+:Else
+:If C≥90
+:Then
+:Goto T
+:Stop
+:
+:Lbl S
+:Bsin(C)→θ
+:If A=θ
+:Then
+:Goto W
+:Else
+:If A>θ
+:Goto U
+:Else
+:If A<θ
+:Then
+:Disp "NO SOLUTION."
+:Pause 
+:Goto θ
+:
+:Lbl U
+:If A<B
+:Then
+:Goto X
+:Else
+:If A>B
+:Then
+:Goto 0
+:Else
+:If A=B
+:Then
+:Disp "FIGURE IT OUT."
+:Pause 
+:Goto θ
+:
+:Lbl W
+:Disp "AAS:"
+:Disp sin{^-1}((Bsin(C))/A)
+:sin{^-1}((Bsin(C))/A)→E
+:Disp π-C-E
+:π-C-E→D
+:Disp (Asin(D))/sin(C)
+:(Asin(D))/sin(C)→F
+:Disp "AREA="
+:((A+B+F)/2)→S
+:Disp sqrt((S)(S-A)(S-B)(S-F))
+:Pause 
+:Disp "PERIMETER="
+:Disp 2S
+:Pause 
+:Goto θ
+:
+:Lbl X
+:Disp "AAS:"
+:Disp sin{^-1}((Bsin(C))/A)
+:sin{^-1}((Bsin(C))/A)→D
+:Disp π-C-D
+:π-C-D→E
+:Disp (Asin(E))/sin(C)
+:(Asin(E))/sin(C)→F
+:Disp "AREA="
+:((A+B+F)/2)→S
+:Disp sqrt((S)(S-A)(S-B)(S-F))
+:Pause 
+:Disp "PERIMETER="
+:Disp 2S
+:Disp "OR..."
+:Pause 
+:Disp "AAS:"
+:Disp sin{^-1}((Bsin(C))/A)
+:sin{^-1}((Bsin(C))/A)→D
+:π-D-C→E
+:π-E→G
+:Disp G
+:Disp (Asin(G))/sin(C)
+:(Asin(G))/sin(C)→F
+:Disp "AREA="
+:((A+B+F)/2)→S
+:Disp sqrt((S)(S-A)(S-B)(S-F))
+:Pause 
+:Disp "PERIMETER="
+:Disp 2S
+:Pause 
+:Goto θ
+:
+:Lbl 0
+:Disp "AAS:"
+:Disp sin{^-1}((Bsin(C))/A)
+:sin{^-1}((Bsin(C))/A)→D
+:Disp π-C-D
+:π-C-D→E
+:Disp (Asin(E))/sin(C)
+:(Asin(E))/sin(C)→F
+:Disp "AREA="
+:((A+B+F)/2)→S
+:Disp sqrt((S)(S-A)(S-B)(S-F))
+:Pause 
+:Disp "PERIMETER="
+:Disp 2S
+:Pause 
+:Goto θ
+:
+:Lbl T
+:If A>B
+:Then
+:Goto V
+:Else
+:If A≤B
+:Then
+:Disp "NO SOLUTION."
+:Pause 
+:Goto θ
+:
+:Lbl V
+:Disp "AAS:"
+:Disp sin{^-1}((Bsin(C))/A)
+:sin{^-1}((Bsin(C))/A)→D
+:Disp π-C-D
+:π-C-D→E
+:Disp (Asin(E))/sin(C)
+:(Asin(E))/sin(C)→F
+:Disp "AREA="
+:((A+B+F)/2)→S
+:Disp sqrt((S)(S-A)(S-B)(S-F))
+:Pause 
+:Disp "PERIMETER="
+:Disp 2S
+:Pause 
+:Goto θ
+:
